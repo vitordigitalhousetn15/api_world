@@ -22,7 +22,16 @@ async function getCountryByCode(code) {
   return response;
 }
 
+async function getLanguages() {
+  const response = await db.query("SELECT Language from countrylanguage;", {
+    type: Sequelize.QueryTypes.SELECT
+  });
+
+  return response;
+}
+
 module.exports = {
   getCountries: getCountries,
-  getCountryByCode: getCountryByCode
+  getCountryByCode: getCountryByCode,
+  getLanguages: getLanguages
 };

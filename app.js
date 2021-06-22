@@ -1,9 +1,12 @@
 const express = require('express');
 const cors = require('cors');
+const logsMiddleware = require('./middleware/Logs');
 const countryRoutes = require('./routes/country');
 
 const app = express();
 app.use(cors());
+
+app.use(logsMiddleware.logAccessRoute);
 
 app.use("/countries", countryRoutes);
 

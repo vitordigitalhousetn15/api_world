@@ -7,6 +7,11 @@ router.get("/", async function(req, res) {
   res.json({ success: true, response: response });
 });
 
+router.get("/languages", async function(req, res) {
+  const response = await model.getLanguages();
+  res.json({ success: true, response: response });
+});
+
 router.get("/:code", async function(req, res) {
   const code = req.params.code;
   const response = await model.getCountryByCode(code);
